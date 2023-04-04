@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>Chat client</title>
+    <script type="text/javascript" src="libs/vue/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="(msg,index) in chat">
+            <div v-if="chat != ''">{{ msg }}</div>
+        </li>
+    </ul>
+
+    <input type="text" id="message" placeholder="Write a message" /><button id="send" v-on:click="add(message)">Send</button>
+</div>
+    <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+    <script src="client.js"></script>
+    <script src="app.js"></script>
+
+
+</body>
+</html>
