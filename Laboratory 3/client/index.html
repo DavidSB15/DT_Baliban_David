@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>Hamming Encoder</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+
+      <div class="container" id="hamming-encoder">
+
+          <h1 class="title">Hamming Encoder</h1>
+          <div class="field">
+              <label class="label">Number of data bits:</label>
+              <div class="control">
+                  <input class="input" type="number" v-model.number="numberOfDataBits" @change="initDataBits">
+              </div>
+          </div>
+
+          <div class="field" v-for="(bit, index) in dataBits" :key="index">
+              <label class="label">Data bit {{index + 1}}</label>
+              <div class="control">
+                  <input class="input" type="text" v-model.trim="bit.data">
+              </div>
+          </div>
+
+          <div class="field">
+              <div class="control">
+                  <button class="button is-warning" @click="send">Encode</button>
+              </div>
+          </div>
+
+          <div class="field" v-if="status">
+              <label class="label">Status:</label>
+              <div class="control">
+                  <p class="notification is-warning">{{status}}</p>
+              </div>
+          </div>
+
+      </div>
+      <script src="js/app.js"></script>
+  </body>
+</html>
