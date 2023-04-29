@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Huffman Encoding</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="huffman.js"></script>
+    <style>
+      .node-container {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .node-label {
+        display: inline-block;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        border: 1px solid #ccc;
+      }
+
+      .node-left::before,
+      .node-right::before {
+        content: "";
+        display: inline-block;
+        border-top: 1px solid #ccc;
+        height: 20px;
+        width: 0px;
+        vertical-align: top;
+        margin-right: 20px;
+      }
+
+      .node-left::before {
+        margin-left: 20px;
+      }
+
+      .node-right::before {
+        margin-left: -20px;
+      }
+
+      .node-left {
+        display: inline-block;
+        margin-right: -4px;
+      }
+
+      .node-right {
+        display: inline-block;
+      }
+
+      .node-leaf {
+        background-color: #d8d8d8;
+      }
+
+      .link {
+        width: 0;
+        height: 0;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-left: 20px solid #ccc;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 20px;
+      }
+
+      .node-left .link {
+        border-left: 20px solid transparent;
+        border-right: 20px solid #ccc;
+        margin-right: -20px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <input type="text" id="inputString" placeholder="Enter input string" />
+    <button onclick="encode()">Encode</button>
+    <div id="output"></div>
+  </body>
+</html>
