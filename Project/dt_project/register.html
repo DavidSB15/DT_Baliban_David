@@ -1,0 +1,105 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reg Form</title>
+
+    <link rel="stylesheet" href="app.css" />
+    <style type="text/css">
+        body{
+            font-family: Calibri;
+        }
+        input[type="text"] {
+            width: 250px;
+        }
+        input[type="submit"], input[type="reset"] {
+            width: 77px;
+            height: 27px;
+            position: relative;left: 180px;
+        }
+        form{
+            text-align: center;
+            font-family: Calibri;
+            font-size: 20px;
+            border: 3px solid black;
+            width: 600px;
+            margin: 20px auto;
+        }
+        td {
+            padding: 10px;
+        }
+        td:first-child {
+            text-align: right;
+            font-weight: bold;
+        }
+        td:last-child {
+            text-align: left;
+        }
+
+    </style>
+
+    <script>
+        function validate() {
+            var username = document.reg_form.username;
+            var email = document.reg_form.email;
+            var password = document.reg_form.password;
+            
+            if (username.value.length <= 0) 
+            {
+                alert("username is required");
+                username.focus();
+                return false;
+            }
+            if (email.value.length <= 0) {
+                alert("email is required");
+                email.focus();
+                return false;
+            }
+            if (password.value.length <= 0) {
+                alert("Password is required");
+                password.focus();
+                return false;
+            }
+            return false;
+        }
+    </script>
+
+</head>
+<body>
+    <center><h1>Register account</h1></center>
+    <hr>
+    <form method="" action="" name="reg_form" onsubmit="return validate()">
+        <h2></h2>
+        <table>
+            <tr>
+                <td><label>Username: </label></td>
+                <td>
+                    <input type="text" name="username" placeholder="Username">
+                </td>
+            </tr>
+            <tr>
+                <td><label>Email: </label></td>
+                <td>
+                    <input type="text" name="email" placeholder="Email">
+                </td>
+            </tr>
+            <tr>
+                <td><label>Password: </label></td>
+                <td>
+                    <input type="text" name="password" placeholder="Password">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <!--<input type="submit" name="submit" value="Submit" href="login.html">-->
+                    <a class="btn" href="login.html">Register</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>High Scores</title>
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="highscores.css" />
+
+    <title>Medal Display</title>
+    <style>
+      .medal-img {
+        width: 50px;
+        height: 50px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <div id="highScores" class="flex-center flex-column">
+        <h1 id="finalScore">High Scores</h1>
+
+        <table>
+          <tr>
+            <td>1st place</td>
+            <td><img class="medal-img" src="gold-medal.png" alt="Gold Medal"></td>
+          </tr>
+          <tr>
+            <td>2nd place</td>
+            <td><img class="medal-img" src="silver-medal.png" alt="Silver Medal"></td>
+          </tr>
+          <tr>
+            <td>3rd place</td>
+            <td><img class="medal-img" src="bronze-medal.png" alt="Bronze Medal"></td>
+          </tr>
+        </table>
+        
+        <ul id="highScoresList"></ul>
+        <a class="btn" href="index.html">Go Home</a>
+      </div>
+    </div>
+    <script src="highscores.js"></script>
+
+  </body>
+</html>
+
+<script>
+  const medalData = localStorage.getItem('medalData');
+  if (medalData) {
+    //const { score, medalSrc, medalAlt } = JSON.parse(medalData);
+    const medalImg = document.createElement('img');
+    //medalImg.src = medalSrc;
+    //medalImg.alt = medalAlt;
+    const medalCell = document.querySelector('tbody tr:first-child td:last-child');
+    medalCell.appendChild(medalImg);
+  }
+</script>
